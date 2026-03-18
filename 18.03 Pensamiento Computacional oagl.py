@@ -1,0 +1,29 @@
+# i=1
+# while i<=10:
+#    if i%3==0:
+#        print (i)
+#    i=i+1
+
+#
+#i=1
+#suma=0
+#while i<=5
+#   suma=suma+i
+#   i=i+1
+#print("suma", suma)
+
+
+#n=int(input("Escriba un numero (0 para salir): "))
+
+#while n !=0:
+   #print("Escribirste: ", n)
+   #n=(int(input("Escribe otro numero (0 para salir):")))
+
+
+i=1
+suma=0
+while i<=20:
+    if i%2==0:
+        suma+=1
+    i+=1
+print("suma de pares: ", suma)
