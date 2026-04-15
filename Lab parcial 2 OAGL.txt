@@ -1,0 +1,103 @@
+*Ejercicio 1*
+
+tamaño = int(input("Ingrese tamaño del arreglo: "))
+base = int(input("Ingrese número base: "))
+
+multiplos = []
+
+for i in range(1, tamaño + 1):
+    multiplo = base * i
+    multiplos.append(multiplo)
+
+print(multiplos)
+
+
+*Ejercicio 2*
+
+tamaño = int(input("Ingrese cantidad de nombres: "))
+nombres = []
+longitudes = []
+
+for i in range(tamaño):
+    nombre = input("Ingrese nombre: ")
+    nombres.append(nombre)
+    
+    contador = 0
+    for letter in nombre:
+        contador = contador + 1
+        
+    longitudes.append(contador)
+    
+print("Nombres: ", nombres)
+print("Longitudes: ", longitudes)
+
+*Escenario 1*
+n = int(input("Ingrese número de clientes: "))
+
+calificaciones = []
+
+for i in range(n):
+    cal=int(input("Ingrese calificación (1-5): "))
+    calificaciones.append(cal)
+
+cal1 = 0
+cal2 = 0
+cal3 = 0
+cal4 = 0
+cal5 = 0
+
+total = 0
+
+for cal in calificaciones:
+    total += cal
+    
+    if cal == 1:
+        cal1 += 1
+    elif cal == 2:
+        cal2 += 1
+    elif cal == 3:
+        cal3 += 1
+    elif cal == 4:
+        cal4 += 1
+    elif cal == 5:
+        cal5 += 1
+
+promedio = total/n
+
+
+cuenta_max = cal1
+mayor = 1
+
+if cal2> cuenta_max:
+    cuenta_max = cal2
+    mayor = 2
+if cal3 > cuenta_max:
+    cuenta_max = cal3
+    mayor = 3
+if cal4 > cuenta_max:
+    cuenta_max = cal4
+    mayor = 4
+if cal5 > cuenta_max:
+    cuenta_max = cal5
+    mayor = 5
+
+menor = 0
+
+for r in calificaciones:
+    if r < promedio:
+        menor += 1
+
+porcentaje = (menor / n) * 100
+
+# Salida
+print("Resultados:")
+
+print("Excelente (5):", cal5)
+print("Muy Buena (4):", cal4)
+print("Buena (3):", cal3)
+print("Regular (2):", cal2)
+print("Malo (1):", cal1)
+
+print("Más frecuente:", mayor)
+print("Promedio:", promedio)
+print("Porcentaje menor al promedio:", porcentaje, "%")
