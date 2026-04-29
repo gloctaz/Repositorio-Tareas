@@ -1,0 +1,83 @@
+#tabla = [
+#   [1,2,3],
+#   [4,5,6],
+#   [7,8,9]]
+#]
+
+#print(tabla[0][0])
+#print(tabla[1][2]-tabla[1][1])
+
+#for i in tabla:
+#   for j in i:
+#       if j == 6:
+#           break
+#       print(j)
+#   
+#   for i in tabla:
+#      for j in i:
+#           if j >=6:
+#               break
+#           else:
+#               print(j)
+    
+#for f in range(3):
+#   fila=[]
+#   for c in range(3):
+#       fila.append(0)
+            
+#matriz=[]
+#size_row=int(input("Ingrese tamaño de fila: "))
+#size_column=int(input("Ingrese tamaño de columna: "))
+
+#for f in range(size_row):
+#   fila=[]
+#   for c in range (size_column):
+#       dato=int(input("Ingrese datos: "))
+#       fila.append(dato)
+#   matriz.append(fila)
+#print(matriz)
+
+#SUMA DE MATRICES------------
+#A=[ [2,3],
+#   [4,5]]
+#B=[ [5,4],
+#   [6,8]]
+#suma=[[0,0],[0,0]]
+
+#for i in range(len(A)):
+#   for j in range(len(A[0])):
+#       suma[i][j]=A[i][j]+B[i][j]
+#print(suma)
+
+def restar(A,B):
+    for i in range(filas):
+        fila=[]
+        for j in range(columnas):
+            fila.append(A[i][j]-B[i][j])
+        resultado.append(fila)
+    
+    print(resultado)
+
+
+A = []
+B = []
+resultado = []
+
+filas = int(input("Ingrese la cantidad de filas para A y B: "))
+columnas = int(input("Ingrese la cantidad de columnas para A y B: "))
+
+for i in range(filas):
+    fila = []
+    for j in range(columnas):
+        dato=int(input("Ingrese dato para A: "))
+        fila.append(dato)
+        A.append(fila)
+        
+for i in range(filas):
+    fila = []
+    for j in range(columnas):
+        dato=int(input("Ingrese dato para B: "))
+        fila.append(dato)
+        B.append(fila)
+        
+restar(A,B)
