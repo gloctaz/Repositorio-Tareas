@@ -1,0 +1,96 @@
+#EJERCICIO 1
+#matriz = []
+
+#for i in range(3):
+#    fila = []
+    
+#    for j in range(3):
+#        num = int(input("Ingresa un número: "))
+#        fila.append(num)
+#    
+#    matriz.append(fila)
+#
+#suma_filas = []
+
+#for i in range(3):
+#    suma = 0
+    
+#    for j in range(3):
+#        suma = suma + matriz[i][j]
+    
+#    suma_filas.append(suma)
+
+#suma_columnas = [0, 0, 0]
+
+#for j in range(3):
+#    suma = 0
+    
+#    for i in range(3):
+#        suma = suma + matriz[i][j]
+    
+#    suma_columnas[j] = suma
+
+#print("Suma de filas:", suma_filas)
+#print("Suma de columnas:", suma_columnas)
+
+
+
+#EJERCICIO 2
+matriz = []
+
+for i in range(3):
+    fila = []
+    
+    for j in range(3):
+        num = int(input("Ingresa un número: "))
+        fila.append(num)
+    
+    matriz.append(fila)
+
+suma_filas = []
+
+for i in range(3):
+    suma = 0
+    for j in range(3):
+        suma = suma + matriz[i][j]
+    
+    suma_filas.append(suma)
+
+suma_columnas = [0, 0, 0]
+
+for j in range(3):
+    suma = 0
+    for i in range(3):
+        suma = suma + matriz[i][j]
+    
+    suma_columnas[j] = suma
+
+diag1 = 0
+diag2 = 0
+
+for i in range(3):
+    diag1 = diag1 + matriz[i][i]
+    diag2 = diag2 + matriz[i][2 - i]
+
+print("Suma filas:", suma_filas)
+print("Suma columnas:", suma_columnas)
+print("Diagonal 1:", diag1)
+print("Diagonal 2:", diag2)
+
+es_magico = True
+
+for i in range(3):
+    if suma_filas[i] != suma_filas[0]:
+        es_magico = False
+
+for j in range(3):
+    if suma_columnas[j] != suma_filas[0]:
+        es_magico = False
+
+if diag1 != suma_filas[0] or diag2 != suma_filas[0]:
+    es_magico = False
+
+if es_magico == True:
+    print("Es un cuadrado mágico")
+else:
+    print("No es un cuadrado mágico")
