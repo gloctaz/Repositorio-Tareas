@@ -1,0 +1,238 @@
+from tkinter import *
+
+dias = ["Lunes", "Martes", "Miércoles", "Jueves", "Viernes"]
+
+niveles_azucar = [130, 160, 95, 175, 160]
+niveles_sal = [2000, 2400, 1800, 2400, 2700]
+
+presion_sistolica = [115, 130, 110, 125, 175]
+presion_diastolica = [75, 85, 70, 78, 95]
+
+ventana = Tk()
+
+ventana.title("Monitor de Salud")
+
+ventana.geometry("900x750")
+
+titulo = Label(
+    ventana,
+    text="REPORTE DE SALUD SEMANAL",
+    font=("Arial", 18, "bold")
+)
+
+titulo.pack(pady=10)
+
+texto = Text(
+    ventana,
+    width=90,
+    height=25,
+    font=("Arial", 10)
+)
+
+texto.pack(pady=10)
+
+def mostrar_reporte():
+
+    texto.delete("1.0", END)
+
+    suma_azucar = 0
+    suma_sal = 0
+    suma_sistolica = 0
+    suma_diastolica = 0
+
+    texto.insert(END, "===== REPORTE DE SALUD DIARIO =====\n")
+
+    for i in range(len(dias)):
+
+        texto.insert(END, "\nDía: " + dias[i] + "\n")
+
+        texto.insert(
+            END,
+            "Azúcar: " + str(niveles_azucar[i]) + " mg/dL\n"
+        )
+
+        texto.insert(
+            END,
+            "Sal: " + str(niveles_sal[i]) + " mg\n"
+        )
+
+        texto.insert(
+            END,
+            "Presión: "
+            + str(presion_sistolica[i])
+            + "/"
+            + str(presion_diastolica[i])
+            + " mmHg\n"
+        )
+
+        if niveles_azucar[i] >= 70 and niveles_azucar[i] <= 140:
+
+            texto.insert(
+                END,
+                "Azúcar dentro del rango normal\n"
+            )
+
+        else:
+
+            texto.insert(
+                END,
+                "ALERTA: Azúcar fuera del rango saludable\n"
+            )
+
+        if niveles_sal[i] <= 2300:
+
+            texto.insert(
+                END,
+                "Consumo de sal normal\n"
+            )
+
+        else:
+
+            texto.insert(
+                END,
+                "ALERTA: Exceso de consumo de sal\n"
+            )
+
+        sistolica = presion_sistolica[i]
+        diastolica = presion_diastolica[i]
+
+        if sistolica < 120 and diastolica < 80:
+
+            texto.insert(
+                END,
+                "Presión arterial NORMAL\n"
+            )
+
+        elif sistolica >= 120 and sistolica <= 129 and diastolica < 80:
+
+            texto.insert(
+                END,
+                "Presión arterial ELEVADA\n"
+            )
+
+        elif (sistolica >= 130 and sistolica <= 139) or (diastolica >= 80 and diastolica <= 89):
+
+            texto.insert(
+                END,
+                "HIPERTENSIÓN ETAPA 1\n"
+            )
+
+        elif sistolica >= 140 or diastolica >= 90:
+
+            texto.insert(
+                END,
+                "HIPERTENSIÓN ETAPA 2\n"
+            )
+
+            texto.insert(
+                END,
+                "Se recomienda atención médica\n"
+            )
+
+        suma_azucar = suma_azucar + niveles_azucar[i]
+
+        suma_sal = suma_sal + niveles_sal[i]
+
+        suma_sistolica = suma_sistolica + presion_sistolica[i]
+
+        suma_diastolica = suma_diastolica + presion_diastolica[i]
+
+    promedio_azucar = suma_azucar / len(dias)
+
+    promedio_sal = suma_sal / len(dias)
+
+    promedio_sistolica = suma_sistolica / len(dias)
+
+    promedio_diastolica = suma_diastolica / len(dias)
+
+    texto.insert(END, "\n===== PROMEDIOS SEMANALES =====\n")
+
+    texto.insert(
+        END,
+        "\nPromedio azúcar: "
+        + str(promedio_azucar)
+        + " mg/dL\n"
+    )
+
+    texto.insert(
+        END,
+        "Promedio sal: "
+        + str(promedio_sal)
+        + " mg\n"
+    )
+
+    texto.insert(
+        END,
+        "Promedio presión: "
+        + str(promedio_sistolica)
+        + "/"
+        + str(promedio_diastolica)
+        + " mmHg\n"
+    )
+
+    if promedio_azucar >= 70 and promedio_azucar <= 140:
+
+        texto.insert(
+            END,
+            "Promedio semanal de azúcar: NORMAL\n"
+        )
+
+    else:
+
+        texto.insert(
+            END,
+            "ALERTA: Promedio semanal de azúcar fuera del rango\n"
+        )
+
+    if promedio_sal <= 2300:
+
+        texto.insert(
+            END,
+            "Promedio semanal de sal: NORMAL\n"
+        )
+
+    else:
+
+        texto.insert(
+            END,
+            "ALERTA: Promedio semanal de sal ALTO\n"
+        )
+
+    if promedio_sistolica < 120 and promedio_diastolica < 80:
+
+        texto.insert(
+            END,
+            "Promedio semanal de presión NORMAL\n"
+        )
+
+    elif promedio_sistolica >= 120 and promedio_sistolica <= 129 and promedio_diastolica < 80:
+
+        texto.insert(
+            END,
+            "Promedio semanal de presión ELEVADA\n"
+        )
+
+    elif (promedio_sistolica >= 130 and promedio_sistolica <= 139) or (promedio_diastolica >= 80 and promedio_diastolica <= 89):
+
+        texto.insert(
+            END,
+            "Promedio semanal: HIPERTENSIÓN ETAPA 1\n"
+        )
+
+    elif promedio_sistolica >= 140 or promedio_diastolica >= 90:
+
+        texto.insert(
+            END,
+            "Promedio semanal: HIPERTENSIÓN ETAPA 2\n"
+        )
+
+boton = Button(
+    ventana,
+    text="Mostrar Reporte",
+    font=("Arial", 12),
+    command=mostrar_reporte
+)
+
+boton.pack(pady=10)
+
+ventana.mainloop()
