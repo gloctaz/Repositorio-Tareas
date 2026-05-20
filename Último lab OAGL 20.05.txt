@@ -1,0 +1,60 @@
+# DEFINICIÓN DE TUPLAS
+
+# Las tuplas son estructuras de datos
+# que guardan varios valores.
+# Sus datos NO se pueden modificar.
+
+tupla = ("Juan", 20, "Guatemala")
+
+print("TUPLA:")
+print(tupla)
+print("Primer dato:", tupla[0])
+
+print("\n-------------------------\n")
+
+
+# DEFINICIÓN DE DICCIONARIOS
+
+# Los diccionarios guardan datos
+# usando clave y valor.
+
+persona = {
+    "nombre": "Ana",
+    "edad": 19,
+    "carrera": "Ingeniería"
+}
+
+print("DICCIONARIO ORIGINAL:")
+print(persona)
+
+print("\n-------------------------\n")
+
+
+# INSERTAR DATOS
+
+persona["ciudad"] = "Guatemala"
+
+print("DESPUÉS DE INSERTAR:")
+print(persona)
+
+print("\n-------------------------\n")
+
+
+# MODIFICAR DATOS
+
+
+persona["edad"] = 20
+
+print("DESPUÉS DE MODIFICAR:")
+print(persona)
+
+print("\n-------------------------\n")
+
+
+# ELIMINAR DATOS
+
+
+del persona["carrera"]
+
+print("DESPUÉS DE ELIMINAR:")
+print(persona)
